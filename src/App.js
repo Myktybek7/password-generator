@@ -45,6 +45,26 @@ const addToHistory = (newPassword, strength) => {
   localStorage.setItem('passwordHistory', JSON.stringify(newHistory));
 };
 
+return (
+  <div className="App">
+    <h1>Генератор паролей</h1>
+    <button onClick={() => generatePassword(16)}>Сгенерировать пароль</button>
+    <div>
+      <p><strong>Пароль:</strong> {password}</p>
+      <p><strong>Надежность:</strong> {strength}</p>
+    </div>
+
+    <h2>История паролей</h2>
+    <ul>
+      {history.map((entry, index) => (
+        <li key={index}>
+          <strong>{entry.strength}:</strong> {entry.password}
+        </li>
+      ))}
+    </ul>
+  </div>
+);
+
 
 
 export default PasswordGenerator;
