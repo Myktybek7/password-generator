@@ -39,5 +39,12 @@ const generatePassword = (length = 12) => {
   setStrength(passwordStrength);
 };
 
+const addToHistory = (newPassword, strength) => {
+  const newHistory = [...history, { password: newPassword, strength }];
+  setHistory(newHistory);
+  localStorage.setItem('passwordHistory', JSON.stringify(newHistory));
+};
+
+
 
 export default PasswordGenerator;
